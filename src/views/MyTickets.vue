@@ -32,9 +32,14 @@
 <style>
   .concertTick {
     display: flex;
+    align-items: center;
   }
 
   .concertTick h3 {
     margin: 20px;
+  }
+
+  .concertTick button {
+    height: 30px;
   }
 </style>
