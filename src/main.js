@@ -6,7 +6,8 @@ import artistData from './mockData.js'
 Vue.config.productionTip = false
 
 let data = {
-  artistData
+  artistData,
+  tickets: [],
 }
 
 new Vue({

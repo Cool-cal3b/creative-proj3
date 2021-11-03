@@ -6,6 +6,7 @@
       <div class="all_conc" v-if="concertShow(artist.name)">
         <div class="concerts" v-for="concert in artist.concerts" :key="concert.place">
           <h2>Location: {{ concert.location }}</h2>
+          <button @click.stop.prevent="addTicket(concert)">Buy Ticket</button>
         </div>
       </div>
       <div v-else><h2> Click here for more information </h2></div>
@@ -33,6 +34,9 @@
       },
       changeShowVal(name) {
         this.show.find(el => el.name === name).clicked = !(this.show.find(el => el.name === name).clicked);
+      },
+      addTicket(concert) {
+        if (!this.$root.$data.tickets.includes(concert)) this.$root.$data.tickets.push(concert);
       }
     },
     computed: {
