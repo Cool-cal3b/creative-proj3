@@ -21,6 +21,9 @@
     methods: {
       deleteTicket(id) {
         let ticks = this.$root.$data.tickets;
+        let currConc = "";
+        for (let artist of this.$root.$data.artistData) {for (let conc of artist.concerts) if (id === conc.id) currConc = conc;}
+        currConc.tickets_left += 1;
         for (let con of ticks) {
           if (con.id === id) ticks.splice(con, 1);
         }
