@@ -23,7 +23,94 @@ let artistData = [
     concerts: [
         { location: "Salt Lake", venue: "The Complex", min_price: 20, tickets_left: 100, date: "10/6/23", id:69},
     ]
-  }
+  },
+  {
+    name: "Biggie Cheese",
+    id: 4,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Cinders",
+    id: 5,
+    concerts: [
+      { location: "Houston", venue: "??", min_price: 20, tickets_left: 100, date: "10/6/21", id:30},
+      { location: "Austin", venue: "??", min_price: 20, tickets_left: 100, date: "10/7/21", id:31},
+      { location: "Austin", venue: "I'll just make something up here", min_price: 20, tickets_left: 100, date: "10/8/21", id:32},
+      { location: "Tempe", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/12/21", id:33},
+      { location: "Oceanside", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/14/23", id:34},
+      { location: "San Diego", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/15/21", id:35},
+      { location: "Los Angeles", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/16/21", id:36},
+      { location: "Los Angeles", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/17/21", id:37},
+      { location: "Seattle", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/29/21", id:38},
+      { location: "Stanley", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/30/21", id:39},
+    ]
+  },
+  {
+    name: "Motion Coaster",
+    id: 5,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Joshua James",
+    id: 6,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "DJ C",
+    id: 7,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Love S3at",
+    id: 8,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Ritt Momney",
+    id: 9,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "The Solarists",
+    id: 10,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "The National Parks",
+    id: 11,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Bad Heather",
+    id: 12,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+  {
+    name: "Caleb Chapman's Crescent Super Band",
+    id: 13,
+    concerts: [
+        { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
+    ]
+  },
+
 ]
 
 export default artistData;
