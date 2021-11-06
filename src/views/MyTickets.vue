@@ -7,6 +7,7 @@
         <h3>{{conc.date}}</h3>
         <button v-on:click="deleteTicket(conc.id)">Sell Ticket</button>
       </div>
+      <h2 v-if="noTickets">You currently have no tickets</h2>
     </div>
   </div>
 </template>
@@ -17,6 +18,9 @@
       allTicks() {
         return this.$root.$data.tickets;
       },
+      noTickets() {
+        return this.$root.$data.tickets.length == 0;
+      }
     },
     methods: {
       deleteTicket(id) {
