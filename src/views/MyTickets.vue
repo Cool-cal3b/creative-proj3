@@ -38,8 +38,8 @@
 
 <style>
   .concertTick {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   }
 
   .concertTick h3 {
@@ -48,5 +48,9 @@
 
   .concertTick button {
     height: 30px;
+  }
+
+.allTickets {
+  //display:flex;
   }
 </style>

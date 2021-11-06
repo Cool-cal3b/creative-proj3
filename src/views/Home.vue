@@ -1,21 +1,17 @@
 <template>
   <div class="home">
-    <div class="temp"></div>
+    <div class="temp"><img src="/images/concert.jpg" width = 100%></div>
     <div class="blurb">
       <div class="temp2"></div>
-      <h3> These are words.  Words are very good. ikis are enabled by wiki software,
-      otherwise known as wiki engines. A wiki engine, being a form of a content management
-      system, differs from other web-based systems such as blog software, in that the
-      content is created without any defined owner or leader, and wikis have little inherent
-      structure, allowing structure to emerge according to the needs of the users.[1] Wiki
-      engines usu</h3>
+      <h3> Browse local concerts, local musicians, and concerts from your favorite artists here.</h3>
+      <router-link to="/artists" class="des_link">Get Started</router-link>
       </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
+// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
@@ -32,6 +28,7 @@ export default {
   .blurb {
     display: flex;
     align-items: center;
+    padding: -60px;
   }
 
   .blurb h3 {
@@ -40,15 +37,19 @@ export default {
   }
 
   .temp {
+
     width: 100%;
     height: 600px;
-    background-color: gray;
   }
 
   .temp2 {
-    background-color: blue;
-    width: 200px;
-    height: 200px;
+    display: flex;
+    height: 300px;
     margin: 20px;
+  }
+
+  .des_link {
+  text-decoration: none;
+  color: #808080;
   }
 </style>

@@ -4,9 +4,10 @@
     <div class=ind_artist v-for="artist in artists" :key="artist.name" v-on:click="changeShowVal(artist.name)">
       <h2> {{ artist.name }} </h2>
       <div class="all_conc" v-if="concertShow(artist.name)">
+        <img class="artist_image" :src="artist.image" width = 400px>
         <div class="concerts" v-for="concert in artist.concerts" :key="concert.place">
           <div class="venue">
-            <h2>Concert at {{ concert.venue }} </h2>
+            <h2>{{ concert.venue }} </h2>
             <p>Date: {{ concert.date }}</p>
           </div>
           <h2>Location: {{ concert.location }}</h2>
@@ -17,7 +18,7 @@
           </div>
         </div>
       </div>
-      <div v-else><h2> Click here for more information </h2></div>
+      <div v-else><h2> <em>Show more</em> </h2></div>
     </div>
   </div>
 </template>
@@ -50,6 +51,9 @@
         } else {
           alert("You have already purchased this ticket");
         }
+      },
+      showImage(name) {
+        //return this.
       }
     },
     computed: {
@@ -99,4 +103,17 @@
   .venue * {
     margin: 10px;
   }
+</style>
+
+<style scoped>
+
+em {
+  color: #808080;
+  font-weight: 200;
+}
+
+artists {
+  border: 100px black;
+}
+
 </style>
