@@ -15,6 +15,9 @@
         <h3>Cost of tickets: ${{ conc.conc.min_price }}   ({{ conc.conc.tickets_left}} left)</h3>
         <button v-on:click="addTick(conc.artist, conc.conc)" :key="conc.id">Buy Ticket</button>
       </div>
+      </div>
+      <div id="empty" v-if="empty">
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +59,18 @@ export default {
         }
       }
       return concerts;
+    },
+    empty() {
+    if (this.loc === "") return true;
+    let artists = this.$root.$data.artistData;
+    let concerts = [];
+
+    for (let artist of artists) {
+      for (let concert of artist.concerts) {
+        if (concert.location.toLowerCase().includes(this.loc.toLowerCase())) return false;
+      }
+    }
+    return true;
     }
   }
 }
@@ -89,6 +104,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#empty {
+  width: 100%;
+  height: 400px;
 }
 
 </style>
