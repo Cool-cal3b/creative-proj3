@@ -7,7 +7,11 @@
         <h3>{{conc.date}}</h3>
         <button v-on:click="deleteTicket(conc.id)">Sell Ticket</button>
       </div>
-      <h2 v-if="noTickets">You currently have no tickets</h2>
+      <div v-if="noTickets">
+        <h2><em>You currently have no tickets</em></h2>
+        <div id="empty">
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -19,7 +19,6 @@
       <div id="empty" v-if="empty">
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -63,7 +62,6 @@ export default {
     empty() {
     if (this.loc === "") return true;
     let artists = this.$root.$data.artistData;
-    let concerts = [];
 
     for (let artist of artists) {
       for (let concert of artist.concerts) {
@@ -108,7 +106,7 @@ export default {
 
 #empty {
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 
 </style>
