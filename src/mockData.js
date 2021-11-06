@@ -9,7 +9,7 @@ let artistData = [
     ]
   },
   {
-    name: "Daddy Taddy",
+    name: "Tad Decker's Jazz Trio",
     id: 2,
     concerts: [
       { location: "Pleasant Grove", venue: "Your Mom's House", min_price: 1000, tickets_left: 1, date: "4/10/25", id:14},
@@ -35,7 +35,7 @@ let artistData = [
     name: "Cinders",
     id: 5,
     concerts: [
-      { location: "Houston", venue: "??", min_price: 20, tickets_left: 100, date: "10/6/21", id:30},
+      { location: "Houston", venue: "", min_price: 20, tickets_left: 100, date: "10/6/21", id:30},
       { location: "Austin", venue: "??", min_price: 20, tickets_left: 100, date: "10/7/21", id:31},
       { location: "Austin", venue: "I'll just make something up here", min_price: 20, tickets_left: 100, date: "10/8/21", id:32},
       { location: "Tempe", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/12/21", id:33},

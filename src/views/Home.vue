@@ -28,6 +28,7 @@ export default {
   .blurb {
     display: flex;
     align-items: center;
+    padding: -60px;
   }
 
   .blurb h3 {
@@ -36,6 +37,7 @@ export default {
   }
 
   .temp {
+
     width: 100%;
     height: 600px;
   }
