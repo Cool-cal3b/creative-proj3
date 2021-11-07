@@ -7,14 +7,15 @@
       <router-link to="/tickets">YOUR TICKETS</router-link>
     </div>
     <router-view/>
+    <div class="imgContainer2"><img src="/images/concert2.jpg" id="image2" width = 100%></div>
     <div id = "footer">
       <h2> <em>SPONSORS</em> </h2>
       <div id="sponsors">
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor" id = "Github_link"><img src="/images/Github.png" width = 60px ></a>
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor" id = "fender"><img src="/images/Fender.png" width = 110px > <p></p></a>
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor" id = "fender"><img src="/images/Coke.png" width = 100px > <p></p></a>
-        <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor" id = "beats"><img src="/images/Beats.png" width = 60px > <p></p></a>
-        <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor" id = "vicfirth"><img src="/images/Vicfirth.png" width = 200px > <p></p></a>
+        <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor"><img src="/images/Beats.png" width = 60px id = "beats"> <p></p></a>
+        <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor"><img src="/images/Vicfirth.png" id = "vicfirth"> <p></p></a>
       </div>
     </div>
   </div>
@@ -42,9 +43,14 @@
   text-align: left;
   margin-left: -20px
 }
+#beats {
+margin-top: 10px;
+  width: 55px;
+}
 
 #footer {
   width:100%;
+  padding-top: 30px;
   bottom: 0;
   margin-bottom: -30px;
 }
@@ -67,9 +73,25 @@
 #fender {
   margin-bottom: -15px;
 }
+#vicfirth {
+  width: 200px;
+}
 #Github_link {
   margin-right: 20px;
 }
+.imgContainer2 {
+overflow: hidden;
+  height: 200px;
+   max-height: 300px;
+   position: relative;
+}
 
+#image2 {
+display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
 
 </style>

@@ -17,7 +17,7 @@ let artistData = [
       { location: "Provo", venue: "Bountiful Court", min_price: 5, tickets_left: 40, date: "12/31/23", id:11},
       { location: "Provo", venue: "Smith's Field House", min_price: 25, tickets_left: 2, date: "12/32/31", id:18}
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/jazz.jpeg"
   },
   {
     name: "Coolest_Cal3b",
@@ -25,7 +25,7 @@ let artistData = [
     concerts: [
         { location: "Salt Lake", venue: "The Complex", min_price: 20, tickets_left: 100, date: "10/6/23", id:69},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/cool.png"
   },
   {
     name: "Biggie Cheese",
@@ -50,7 +50,7 @@ let artistData = [
       { location: "Seattle", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/29/21", id:38},
       { location: "Stanley", venue: "Abbey Road rooftop", min_price: 20, tickets_left: 100, date: "10/30/21", id:39},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/cinders.jpeg"
   },
   {
     name: "Motion Coaster",
@@ -58,7 +58,7 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/motion.jpeg"
   },
   {
     name: "Joshua James",
@@ -66,15 +66,15 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/joshua.jpg"
   },
   {
-    name: "DJ C",
+    name: "Lowkey C",
     id: 7,
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/christian.jpeg"
   },
   {
     name: "Love S3at",
@@ -82,7 +82,7 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/loveseat.jpeg"
   },
   {
     name: "Ritt Momney",
@@ -90,7 +90,7 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/ritt.jpeg"
   },
   {
     name: "The Solarists",
@@ -98,7 +98,7 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/solarists.png"
   },
   {
     name: "The National Parks",
@@ -106,15 +106,15 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/national.jpeg"
   },
   {
-    name: "Bad Heather",
+    name: "The Backseat Lovers",
     id: 12,
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/backseat.jpeg"
   },
   {
     name: "Caleb Chapman's Crescent Super Band",
@@ -122,7 +122,7 @@ let artistData = [
     concerts: [
         { location: "Provo", venue: "Bountiful Court", min_price: 15, tickets_left: 800, date: "11/3/24", id:3},
     ],
-    image:"/images/artists/Kanye.jpeg"
+    image:"/images/artists/caleb.jpeg"
   },
 
 ]

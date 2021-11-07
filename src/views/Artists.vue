@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      <div v-else><h2> <em>Show more</em> </h2></div>
+      <div v-else><h2> <em>Click to show more</em> </h2></div>
     </div>
   </div>
 </template>

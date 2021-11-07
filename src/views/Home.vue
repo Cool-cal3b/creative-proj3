@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="temp"><img src="/images/concert.jpg" width = 100%></div>
+    <div class="imgContainer"><img src="/images/concert.jpg" id="image" width = 100%></div>
     <div class="blurb">
       <div class="temp2"></div>
       <h3> Browse local concerts, local musicians, and concerts from your favorite artists here.</h3>
@@ -36,12 +36,6 @@ export default {
     width: 600px;
   }
 
-  .temp {
-
-    width: 100%;
-    height: 600px;
-  }
-
   .temp2 {
     display: flex;
     height: 300px;
@@ -51,5 +45,20 @@ export default {
   .des_link {
   text-decoration: none;
   color: #808080;
+  }
+
+  .imgContainer {
+  overflow: hidden;
+    height: 700px;
+     max-height: 12000px;
+     position: relative;
+  }
+
+  #image {
+  display: block;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      bottom: 0;
   }
 </style>
