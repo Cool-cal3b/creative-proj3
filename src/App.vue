@@ -36,13 +36,12 @@
   //background-color: black;
 }
 
-
 #nav {
-  padding: 30px;
-  background-color: black;
-  text-align: left;
-  margin-left: -20px
-}
+padding: 30px;
+background-color: black;
+text-align: left;
+margin-left: -20px
+}   
 #beats {
 margin-top: 10px;
   width: 55px;
@@ -85,7 +84,6 @@ overflow: hidden;
    max-height: 300px;
    position: relative;
 }
-
 #image2 {
 display: block;
     width: 100%;

@@ -9,7 +9,6 @@
       </div>
       <div v-if="noTickets">
         <h2><em>You currently have no tickets</em></h2>
-        <div id="empty">
         </div>
       </div>
     </div>
