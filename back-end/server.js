@@ -18,8 +18,16 @@ const concertSchema = new mongoose.Schema({
 });
 
 const artistSchema = new mongoose.Schema({
-  artist: String, url: String, id: Number
+  name: String, url: String, id: Number
 });
 
 const Concert = mongoose.model("Concert", concertSchema);
 const Artist = mongoose.model("Artist", artistSchema);
+
+app.post("/api/artist", (req, res) => {
+  let artist = new Artist({
+    name: req.body.name,
+    url: req.body.url,
+    id: req.body.id,
+  });
+});
