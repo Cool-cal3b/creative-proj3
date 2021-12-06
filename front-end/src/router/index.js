@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Artists from "../views/Artists.vue"
 import NearMe from "../views/NearMe.vue"
 import MyTickets from "../views/MyTickets.vue"
+import Admin from "../views/Admin.vue"
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/tickets",
     name: "myTickets",
     component: MyTickets
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin
   }
 ]
 

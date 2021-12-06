@@ -17,6 +17,9 @@
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor"><img src="/images/Beats.png" width = 60px id = "beats"> <p></p></a>
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor"><img src="/images/Vicfirth.png" id = "vicfirth"> <p></p></a>
       </div>
+      <div>
+        <router-link to="/admin">Admin</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +44,7 @@ padding: 30px;
 background-color: black;
 text-align: left;
 margin-left: -20px
-}   
+}
 #beats {
 margin-top: 10px;
   width: 55px;
