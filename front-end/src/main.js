@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import artistData from './mockData.js'
+import artistData from '../public/mockData.js'
 
 Vue.config.productionTip = false
 
