@@ -18,7 +18,7 @@
         <a href = "https://github.com/Cool-cal3b/creative-proj3" target="_blank" class = "sponsor"><img src="/images/Vicfirth.png" id = "vicfirth"> <p></p></a>
       </div>
       <div>
-        <router-link to="/admin">Admin</router-link>
+        <router-link to="/admin" id = "admin">Admin</router-link>
       </div>
     </div>
   </div>
@@ -93,6 +93,10 @@ display: block;
     height: auto;
     position: absolute;
     bottom: 0;
+}
+#admin {
+  color: black;
+  font-style: none;
 }
 
 </style>
