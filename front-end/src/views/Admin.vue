@@ -19,7 +19,11 @@
     },
     methods: {
       addArtist() {
-        axios.post()
+        try {
+          axios.post("/api/artists", {name: this.addArtistName, url: this.addArtistURL});
+        } catch(error) {
+          console.log(error);
+        }
       }
     }
   }
