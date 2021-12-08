@@ -32,22 +32,28 @@
       }
     },
     async created() {
-      let artistsRes = (await axios.get("/api/artists")).data;
-      for (let art of artistsRes) {
-        let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
-        let url = "api/concerts/" + art.name;
-        newArt.show = (await axios.get(url)).data.concerts;
-        this.artists.push(newArt);
-      }
+      this.getInfo();
     },
     methods: {
+      async getInfo() {
+        this.artists = [];
+        let artistsRes = (await axios.get("/api/artists")).data;
+        for (let art of artistsRes) {
+          let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
+          let url = "api/concerts/" + art.name;
+          newArt.show = (await axios.get(url)).data.concerts;
+          this.artists.push(newArt);
+        }
+      },
       changeShowVal(artist) {
         artist.clicked = !(artist.clicked);
       },
-      addTicket(artist, concert) {
-        if (!this.$root.$data.tickets.includes(concert)) {
-          this.$root.$data.tickets.push(concert);
-          concert.tickets_left -= 1;
+      async addTicket(artist, concert) {
+        let allTicks = (await axios.get("/api/tickets")).data.tickets;
+        if (!allTicks.find(el=>el.concertID == concert._id)) {
+          await axios.post("/api/ticket", {id: concert._id});
+          await axios.put("/api/concert/change/0", {id: concert._id});
+          this.getInfo();
         } else {
           alert("You have already purchased this ticket");
         }

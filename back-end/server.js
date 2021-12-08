@@ -100,7 +100,11 @@ app.get("/api/tickets", async (req, res)=>{
 
 app.delete("/api/ticket/:id", (req, res)=> {
   let ticket = Ticket.findById(req.params.id);
-  ticket.delete();
+  ticket.exec((err, item) => {
+    if (err) return next(err);
+    if (!item) return next("could not find item");
+    item.delete();
+  })
   res.sendStatus(200);
 });
 

@@ -41,6 +41,7 @@
         for (let artist of this.artists) {for (let conc of artist.show) if (ticket.concertID === conc._id) currConc = conc}
         await axios.put("/api/concert/change/1", {id: currConc._id});
         await axios.delete("/api/ticket/"+ticket._id);
+        this.tickets = (await axios.get("/api/tickets")).data.tickets;
       },
       getConc(tick) {
         for (let artist of this.artists) {for (let conc of artist.show) if (tick.concertID === conc._id) return conc}
