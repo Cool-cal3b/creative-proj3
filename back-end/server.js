@@ -43,10 +43,9 @@ app.post("/api/concert", (req,res) => {
     artist: req.body.artist,
     location: req.body.location,
     venue: req.body.venue,
-    min_price: req.body.min_price,
-    tickets_left: req.body.tickets_left,
+    min_price: parseInt(req.body.min_price),
+    tickets_left: parseInt(req.body.tickets_left),
     date: req.body.date,
-    id: req.body.id
   });
   try {
     concert.save();
@@ -54,6 +53,12 @@ app.post("/api/concert", (req,res) => {
   } catch(error) {
     res.sendStatus(500);
   }
+});
+
+app.get("/api/artists", (req, res)=>{
+   Artist.find((err, artist)=> {
+     res.json(artist);
+   });
 });
 
 app.listen(3000, ()=>console.log("Listening on port 3000!"));
