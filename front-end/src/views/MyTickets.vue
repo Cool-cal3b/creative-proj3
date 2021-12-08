@@ -2,13 +2,13 @@
   <div class="tickets">
     <h1>Your Tickets</h1>
     <div class="allTickets">
-      <div class="concertTick" v-for="conc in allTicks" :key="conc.id">
-        <h3>{{conc.artist}}</h3>
-        <h3>{{conc.location}}</h3>
-        <h3>{{conc.date}}</h3>
-        <button v-on:click="deleteTicket(conc.id)">Sell Ticket</button>
+      <div class="concertTick" v-for="tick in tickets" :key="tick._id">
+        <h3>{{getConc(tick).artist}}</h3>
+        <h3>{{getConc(tick).location}}</h3>
+        <h3>{{getConc(tick).date}}</h3>
+        <button v-on:click="deleteTicket(tick)">Sell Ticket</button>
       </div>
-      <div v-if="noTickets">
+      <div v-if="!tickets">
         <h2><em>You currently have no tickets</em></h2>
         </div>
       </div>
@@ -22,6 +22,7 @@
     data() {
       return {
         artists: [],
+        tickets: [],
       }
     },
     async created() {
@@ -32,24 +33,17 @@
         newArt.show = (await axios.get(url)).data.concerts;
         this.artists.push(newArt);
       }
-    },
-    computed: {
-      allTicks() {
-        return this.$root.$data.tickets;
-      },
-      noTickets() {
-        return this.$root.$data.tickets.length == 0;
-      }
+      this.tickets = (await axios.get("/api/tickets")).data.tickets;
     },
     methods: {
-      deleteTicket(id) {
-        let ticks = this.$root.$data.tickets;
+      async deleteTicket(ticket) {
         let currConc = "";
-        for (let artist of this.artists) {for (let conc of artist.show) if (id === conc.id) currConc = conc;}
-        currConc.tickets_left += 1;
-        for (let con of ticks) {
-          if (con.id === id) ticks.splice(con, 1);
-        }
+        for (let artist of this.artists) {for (let conc of artist.show) if (ticket.concertID === conc._id) currConc = conc}
+        await axios.put("/api/concert/change/1", {id: currConc._id});
+        await axios.delete("/api/ticket/"+ticket._id);
+      },
+      getConc(tick) {
+        for (let artist of this.artists) {for (let conc of artist.show) if (tick.concertID === conc._id) return conc}
       }
     }
   }
