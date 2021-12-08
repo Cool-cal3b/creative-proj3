@@ -13,7 +13,7 @@
       </div>
       <div class="tickInfo">
         <h3>Cost of tickets: ${{ conc.conc.min_price }}   ({{ conc.conc.tickets_left}} left)</h3>
-        <button v-on:click="addTick(conc.artist, conc.conc)" :key="conc.id">Buy Ticket</button>
+        <button v-on:click="addTick(conc)" :key="conc.id">Buy Ticket</button>
       </div>
       </div>
       <div id="empty" v-if="empty">
@@ -22,26 +22,39 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
   data() {
-    return { loc: ""}
+    return {
+      loc: "",
+      artists: [],
+    }
   },
+
   methods: {
-    addTick(art, conc) {
-      if (!this.$root.$data.tickets.includes(conc)) {
-        this.$root.$data.tickets.push(conc)
-        this.$root.$data.artistData.find(el => el.id === art.id).concerts.find(el => el.id === conc.id).tickets_left -= 1;
+    addTick(conc) {
+      if (!this.$root.$data.tickets.includes(conc.conc)) {
+        this.$root.$data.tickets.push(conc.conc)
+        conc.conc.tickets_left -= 1;
       }
+    }
+  },
+  async created() {
+    let artistsRes = (await axios.get("/api/artists")).data;
+    for (let art of artistsRes) {
+      let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
+      let url = "api/concerts/" + art.name;
+      newArt.show = (await axios.get(url)).data.concerts;
+      this.artists.push(newArt);
     }
   },
   computed: {
     concertPlaces() {
-      let artists = this.$root.$data.artistData;
+      let artists = this.artists;
       let concertPlaces = [];
 
       for (let artist of artists) {
-        for (let concert of artist.concerts) {
+        for (let concert of artist.show) {
           if (!concertPlaces.includes(concert.location)) concertPlaces.push(concert.location);
         }
       }
@@ -49,26 +62,26 @@ export default {
     },
     filtConcerts() {
       if (this.loc === "") return;
-      let artists = this.$root.$data.artistData;
+      let artists = this.artists;
       let concerts = [];
 
       for (let artist of artists) {
-        for (let concert of artist.concerts) {
+        for (let concert of artist.show) {
           if (concert.location.toLowerCase().includes(this.loc.toLowerCase())) concerts.push({ artist: artist, conc: concert});
         }
       }
       return concerts;
     },
     empty() {
-    if (this.loc === "") return true;
-    let artists = this.$root.$data.artistData;
+      if (this.loc === "") return true;
+      let artists = this.artists;
 
-    for (let artist of artists) {
-      for (let concert of artist.concerts) {
-        if (concert.location.toLowerCase().includes(this.loc.toLowerCase())) return false;
+      for (let artist of artists) {
+        for (let concert of artist.show) {
+          if (concert.location.toLowerCase().includes(this.loc.toLowerCase())) return false;
+        }
       }
-    }
-    return true;
+      return true;
     }
   }
 }

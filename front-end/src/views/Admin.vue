@@ -17,7 +17,7 @@
     </div>
     <div class="addConcert" v-if="currentArt">
       <h2>Concert for {{ currentArt.name }}</h2>
-      <img :src="currentArt.url">
+      <img :src="currentArt.url" crossorigin="anonymous">
       <h3>Location</h3><input v-model="concLoc">
       <h3>Venue</h3><input v-model="concVen">
       <h3>Minimum Price</h3><input v-model="concMin">
@@ -61,6 +61,8 @@
         this.concLoc = "";
         this.concVen = "";
         this.concMin = "";
+        this.concTicks = "";
+        this.concDate = "";
       },
       addArtist() {
         try {

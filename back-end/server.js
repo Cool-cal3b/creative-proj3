@@ -61,4 +61,9 @@ app.get("/api/artists", (req, res)=>{
    });
 });
 
+app.get("/api/concerts/:artist", async (req, res)=> {
+  let concerts = await Concert.find({artist: req.params.artist});
+  res.send({concerts: concerts});
+});
+
 app.listen(3000, ()=>console.log("Listening on port 3000!"));

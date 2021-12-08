@@ -1,11 +1,11 @@
 <template>
   <div class="artists">
     <h1>All Artists</h1>
-    <div class=ind_artist v-for="artist in artists" :key="artist.name" v-on:click="changeShowVal(artist.name)">
+    <div class=ind_artist v-for="artist in artists" :key="artist.name" v-on:click="changeShowVal(artist)">
       <h2> {{ artist.name }} </h2>
-      <div class="all_conc" v-if="concertShow(artist.name)">
-        <img class="artist_image" :src="artist.image" width = 400px>
-        <div class="concerts" v-for="concert in artist.concerts" :key="concert.place">
+      <div class="all_conc" v-if="artist.clicked">
+        <img class="artist_image" :src="artist.url" width=400px>
+        <div class="concerts" v-for="concert in artist.show" :key="concert.place">
           <div class="venue">
             <h2>{{ concert.venue }} </h2>
             <p>Date: {{ concert.date }}</p>
@@ -24,43 +24,35 @@
 </template>
 
 <script>
-
+  import axios from 'axios';
   export default {
     data() {
-      let artists = this.$root.$data.artistData;
-      let temp = [];
-      for (let i = 0; i < artists.length; i++) {
-        temp.push({clicked: false, name: artists[i].name})
-      }
-
       return {
-        show: temp,
+        artists: [],
+      }
+    },
+    async created() {
+      let artistsRes = (await axios.get("/api/artists")).data;
+      for (let art of artistsRes) {
+        let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
+        let url = "api/concerts/" + art.name;
+        newArt.show = (await axios.get(url)).data.concerts;
+        this.artists.push(newArt);
       }
     },
     methods: {
-      concertShow(name) {
-        return this.show.find(el => el.name === name).clicked
-      },
-      changeShowVal(name) {
-        this.show.find(el => el.name === name).clicked = !(this.show.find(el => el.name === name).clicked);
+      changeShowVal(artist) {
+        artist.clicked = !(artist.clicked);
       },
       addTicket(artist, concert) {
         if (!this.$root.$data.tickets.includes(concert)) {
           this.$root.$data.tickets.push(concert);
-          this.$root.$data.artistData.find(el => el.id === artist.id).concerts.find(el => el.id === concert.id).tickets_left -= 1;
+          concert.tickets_left -= 1;
         } else {
           alert("You have already purchased this ticket");
         }
       },
-      showImage(name) {
-        //return this.
-      }
     },
-    computed: {
-      artists() {
-        return this.$root.$data.artistData;
-      },
-    }
   }
 </script>
 
