@@ -24,6 +24,7 @@
       <h3>Tickets Left</h3><input v-model="concTicks">
       <h3>Date</h3><input v-model="concDate">
       <button v-on:click="addConcert">Submit</button>
+      <button v-on:click="removeArtist">Remove {{currentArt.name}}</button>
     </div>
   </div>
 </template>
@@ -64,10 +65,12 @@
         this.concTicks = "";
         this.concDate = "";
       },
-      addArtist() {
+      async addArtist() {
         try {
           axios.post("/api/artist", {name: this.addArtistName, url: this.addArtistURL});
-          this.con
+          this.addArtistName = "";
+          this.addArtistURL = "";
+          this.allArtists = (await axios.get("/api/artists")).data;
         } catch(error) {
           console.log(error);
         }
@@ -78,6 +81,12 @@
             return art;
           }
         });
+      },
+      async removeArtist() {
+        await axios.delete("/api/artist/"+this.currentArt._id+"/"+this.currentArt.name);
+        this.allArtists = (await axios.get("/api/artists")).data;
+        this.potArtName = "";
+        this.currentArt = "";
       }
     }
   }

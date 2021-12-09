@@ -13,7 +13,7 @@
       </div>
       <div class="tickInfo">
         <h3>Cost of tickets: ${{ conc.conc.min_price }}   ({{ conc.conc.tickets_left}} left)</h3>
-        <button v-on:click="addTick(conc)" :key="conc.id">Buy Ticket</button>
+        <button v-on:click="addTicket(conc)" :key="conc.id">Buy Ticket</button>
       </div>
       </div>
       <div id="empty" v-if="empty">
@@ -32,21 +32,31 @@ export default {
   },
 
   methods: {
-    addTick(conc) {
-      if (!this.$root.$data.tickets.includes(conc.conc)) {
-        this.$root.$data.tickets.push(conc.conc)
-        conc.conc.tickets_left -= 1;
+    async addTicket(duo) {
+      let concert = duo.conc;
+      console.log(concert);
+      let allTicks = (await axios.get("/api/tickets")).data.tickets;
+      if (!allTicks.find(el=>el.concertID == concert._id)) {
+        await axios.post("/api/ticket", {id: concert._id});
+        await axios.put("/api/concert/change/0", {id: concert._id});
+        this.getInfo();
+      } else {
+        alert("You have already purchased this ticket");
       }
-    }
+    },
+    async getInfo() {
+      this.artists = [];
+      let artistsRes = (await axios.get("/api/artists")).data;
+      for (let art of artistsRes) {
+        let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
+        let url = "api/concerts/" + art.name;
+        newArt.show = (await axios.get(url)).data.concerts;
+        this.artists.push(newArt);
+      }
+    },
   },
   async created() {
-    let artistsRes = (await axios.get("/api/artists")).data;
-    for (let art of artistsRes) {
-      let newArt = {name: art.name, url: art.url, clicked: false, _id: art._id}
-      let url = "api/concerts/" + art.name;
-      newArt.show = (await axios.get(url)).data.concerts;
-      this.artists.push(newArt);
-    }
+    this.getInfo();
   },
   computed: {
     concertPlaces() {

@@ -108,4 +108,13 @@ app.delete("/api/ticket/:id", (req, res)=> {
   res.sendStatus(200);
 });
 
+app.delete("/api/artist/:id/:artist", async (req, res)=> {
+  let artist = Artist.findById(req.params.id);
+  await artist.exec((err, item)=> {
+    item.delete();
+  });
+  await Concert.deleteMany({artist: req.params.artist});
+  res.sendStatus(200);
+});
+
 app.listen(3000, ()=>console.log("Listening on port 3000!"));

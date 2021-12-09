@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="tickets">
     <h1>Your Tickets</h1>
     <div class="allTickets">
@@ -10,7 +10,6 @@
       </div>
       <div v-if="!tickets">
         <h2><em>You currently have no tickets</em></h2>
-        </div>
       </div>
     </div>
   </div>
