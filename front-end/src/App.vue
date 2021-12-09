@@ -67,6 +67,10 @@ margin-top: 10px;
   color: #FF0000;
 }
 
+a.router-link:hover {
+  color: blue;
+}
+
 #sponsors {
   display: flex;
   flex-direction: row;

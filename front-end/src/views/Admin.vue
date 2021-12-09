@@ -1,30 +1,35 @@
 <template>
   <div class="Admin">
     <div class="addArtist">
-      <h2>Add an artist</h2>
+      <h2 id="newArtist">Add an artist:</h2>
       <div class="artSub">
-        <input v-model="addArtistName">
-        <input v-model="addArtistURL">
+        <input v-model="addArtistName" placeholder="Artist name">
+        <input v-model="addArtistURL" placeholder="Image URL">
         <button v-on:click="addArtist">Submit</button>
       </div>
     </div>
     <div class="selectArtist">
-      <p>Enter Artist:</p><input list="allArt" v-model="potArtName">
-        <datalist id="allArt">
-          <option v-for="art in allArtists" :key="art.name" :value="art.name"/>
-        </datalist>
+      <h2 id="existingArtist">Search existing artist:</h2>
+      <input list="allArt" v-model="potArtName">
+      <datalist id="allArt">
+        <option v-for="art in allArtists" :key="art.name" :value="art.name"/>
+      </datalist>
       <button v-on:click="selectArtist">Select</button>
     </div>
     <div class="addConcert" v-if="currentArt">
-      <h2>Concert for {{ currentArt.name }}</h2>
+      <h2>Add new concert for {{ currentArt.name }}:</h2>
       <img :src="currentArt.url" crossorigin="anonymous">
       <h3>Location</h3><input v-model="concLoc">
       <h3>Venue</h3><input v-model="concVen">
       <h3>Minimum Price</h3><input v-model="concMin">
       <h3>Tickets Left</h3><input v-model="concTicks">
       <h3>Date</h3><input v-model="concDate">
-      <button v-on:click="addConcert">Submit</button>
-      <button v-on:click="removeArtist">Remove {{currentArt.name}}</button>
+      <h3 class="buttons">
+        <button v-on:click="addConcert">Submit</button>
+      </h3>
+      <h3>
+        <button v-on:click="removeArtist">Remove {{currentArt.name}} and concerts</button>
+      </h3>
     </div>
   </div>
 </template>
@@ -91,3 +96,24 @@
     }
   }
 </script>
+
+<style scoped>
+
+.addArtist {
+  padding: 20px;
+}
+
+.selectArtist {
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.addConcert {
+  padding-bottom: 40px;
+}
+
+.buttons {
+  padding: 10px;
+}
+
+</style>

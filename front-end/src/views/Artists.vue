@@ -1,6 +1,6 @@
 <template>
   <div class="artists">
-    <h1>All Artists</h1>
+    <h1 id="allArtists">All Artists</h1>
     <div class=ind_artist v-for="artist in artists" :key="artist.name" v-on:click="changeShowVal(artist)">
       <h2> {{ artist.name }} </h2>
       <div class="all_conc" v-if="artist.clicked">
@@ -112,6 +112,16 @@ em {
 
 artists {
   border: 100px black;
+}
+
+.all_conc {
+  padding-bottom: 30px;
+}
+
+#allArtists {
+  padding: 20px;
+  padding-bottom: 15px;
+  color: black;
 }
 
 </style>

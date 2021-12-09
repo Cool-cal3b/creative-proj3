@@ -1,11 +1,10 @@
  <template>
   <div class="tickets">
-    <h1>Your Tickets</h1>
+    <h1 id="yourTickets">Your Tickets</h1>
     <div class="allTickets">
       <div class="concertTick" v-for="tick in tickets" :key="tick._id">
-        <h3>{{getConc(tick).artist}}</h3>
-        <h3>{{getConc(tick).location}}</h3>
-        <h3>{{getConc(tick).date}}</h3>
+        <h3 id="concertArtist">{{getConc(tick).artist}}</h3>
+        <h3 id="concertLocation">{{getConc(tick).location}}, {{getConc(tick).date}}</h3>
         <button v-on:click="deleteTicket(tick)">Sell Ticket</button>
       </div>
       <div v-if="!tickets">
@@ -65,5 +64,29 @@
 
 .allTickets {
   //display:flex;
+  justify-content: center;
   }
+
+.concertTick {
+  justify-content: center;
+}
+
+#concertArtist {
+  font-weight: bold;
+}
+
+#concertLocation {
+  font-weight: 100;
+}
+
+#concertDate {
+  font-weight: 100;
+  padding-left: -10px;
+}
+
+#yourTickets {
+  padding: 20px;
+  padding-bottom: 15px;
+  color: black;
+}
 </style>

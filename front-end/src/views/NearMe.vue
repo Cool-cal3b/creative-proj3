@@ -1,6 +1,6 @@
 <template>
   <div class="nearMe">
-    <h1>Concerts near you</h1>
+    <h1 id="nearYou">Concerts near you</h1>
     <p>Enter Location:</p><input list="location" v-model="loc">
       <datalist  id="location">
         <option v-for="conc in concertPlaces" :key="conc" :value="conc"/>
@@ -130,6 +130,12 @@ export default {
 #empty {
   width: 100%;
   height: 400px;
+}
+
+#nearYou {
+  padding: 20px;
+  padding-bottom: 15px;
+  color: black;
 }
 
 </style>
